@@ -1,47 +1,29 @@
-# A Neovim Plugin Template
-
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ellisonleao/nvim-plugin-template/lint-test.yml?branch=main&style=for-the-badge)
-![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)
-
-A template repository for Neovim plugins.
-
-## Using it
-
-Via `gh`:
-
+# Build.nvim
+## Quick Start
+In your neovim configuration file, add the following repository to your packages (lazy.nvim example):
+```lua
+{
+    "gloggers99/build.nvim",
+    opts = {
+        scripts = {
+            -- add your scripts here, these are some examples
+            build = "make",
+            install = "sudo make install"
+        }
+    }
+}
 ```
-$ gh repo create my-plugin -p ellisonleao/nvim-plugin-template
+Then you can run your scripts easily using the `BuildRun` command, for example:
+```lua
+:BuildRun build
 ```
-
-Via github web page:
-
-Click on `Use this template`
-
-![](https://docs.github.com/assets/cb-36544/images/help/repository/use-this-template-button.png)
-
-## Features and structure
-
-- 100% Lua
-- Github actions for:
-  - running tests using [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) and [busted](https://olivinelabs.com/busted/)
-  - check for formatting errors (Stylua)
-  - vimdocs autogeneration from README.md file
-  - luarocks release (LUAROCKS_API_KEY secret configuration required)
-
-### Plugin structure
-
+Or
+```lua
+:BuildRun install
 ```
-.
-├── lua
-│   ├── plugin_name
-│   │   └── module.lua
-│   └── plugin_name.lua
-├── Makefile
-├── plugin
-│   └── plugin_name.lua
-├── README.md
-├── tests
-│   ├── minimal_init.lua
-│   └── plugin_name
-│       └── plugin_name_spec.lua
+## Keybinding
+You can also add keybindings to your configuration file, for example:
+```lua
+vim.api.nvim_set_keymap('n', '<leader>b', ':BuildRun build<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>i', ':BuildRun install<CR>', { noremap = true })
 ```
