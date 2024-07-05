@@ -1,6 +1,8 @@
 # Build.nvim
 A simple script runner plugin and menu for neovim.
 ![](./assets/preview.png)
+## Why
+Prior experiences in JetBrains' IDEs have spoiled me in the way that they have very good script and test runners, years of vim and im missing how convienient this was, I've decided to attempt to implement it in neovim for my first plugin.
 ## Quick Start
 In your neovim configuration file, add the following repository to your packages (lazy.nvim example):
 ```lua
