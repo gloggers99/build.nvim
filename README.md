@@ -1,4 +1,6 @@
 # Build.nvim
+A simple script runner plugin and menu for neovim.
+![](./assets/preview.png)
 ## Quick Start
 In your neovim configuration file, add the following repository to your packages (lazy.nvim example):
 ```lua
@@ -21,6 +23,14 @@ Or
 ```lua
 :BuildRun install
 ```
+## Build.json file
+You can also add a `build.json` file to your project root, for example:
+```json
+{
+    "test": "echo \"Hello world\""
+}
+```
+Everything there will be extended into the configuration for build.nvim and can be executed using the :BuildRun command.
 ## Keybinding
 You can also add keybindings to your configuration file, for example:
 ```lua
